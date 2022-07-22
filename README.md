@@ -1,6 +1,13 @@
 node-boleto
 =============
 
+* Upgrade de todas as dependências do projeto original
+* Usando [daysjs](https://day.js.org/en/) no lugar de [momentjs](https://momentjs.com/)  
+  
+***
+Markdown legado
+------
+
 [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=node-boleto&metric=alert_status&token=7d0c239fa1a25383cf94cc67718c4d7fd9ee34bc)](https://sonarcloud.io/dashboard?id=node-boleto)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=node-boleto&metric=coverage&token=7d0c239fa1a25383cf94cc67718c4d7fd9ee34bc)](https://sonarcloud.io/dashboard?id=node-boleto)
