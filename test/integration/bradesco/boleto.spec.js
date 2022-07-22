@@ -1,5 +1,8 @@
 const Boleto = require('../../../index').Boleto
-const moment = require('moment')
+const dayjs = require('dayjs')
+const utc = require('dayjs/plugin/utc')
+dayjs.extend(utc)
+
 const expect = require('chai').expect
 
 describe('Bradesco Boleto', () => {
@@ -8,8 +11,8 @@ describe('Bradesco Boleto', () => {
     before(() => {
       boletos.push(new Boleto({
         'banco': 'bradesco',
-        'data_emissao': moment('2017-01-01T00:00:00Z').valueOf(),
-        'data_vencimento': moment('2017-01-05T00:00:00Z').valueOf(),
+        'data_emissao': dayjs('2017-01-01T00:00:00Z').valueOf(),
+        'data_vencimento': dayjs('2017-01-05T00:00:00Z').valueOf(),
         'valor': 1500,
         'nosso_numero': '6',
         'numero_documento': '1',
@@ -27,8 +30,8 @@ describe('Bradesco Boleto', () => {
     before(() => {
       boletos.push(new Boleto({
         'banco': 'bradesco',
-        'data_emissao': moment('2017-01-01T00:00:00Z').toDate(),
-        'data_vencimento': moment('2017-01-05T01:00:00Z').toDate(),
+        'data_emissao': dayjs('2017-01-01T00:00:00Z').toDate(),
+        'data_vencimento': dayjs('2017-01-05T01:00:00Z').toDate(),
         'valor': 1500,
         'nosso_numero': '6',
         'numero_documento': '1',
@@ -46,8 +49,8 @@ describe('Bradesco Boleto', () => {
     before(() => {
       boletos.push(new Boleto({
         'banco': 'bradesco',
-        'data_emissao': moment('2017-01-01T00:00:00Z').format(),
-        'data_vencimento': moment('2017-01-05T02:00:00Z').format(),
+        'data_emissao': dayjs('2017-01-01T00:00:00Z').format(),
+        'data_vencimento': dayjs('2017-01-05T02:00:00Z').format(),
         'valor': 1500,
         'nosso_numero': '6',
         'numero_documento': '1',

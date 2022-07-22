@@ -1,4 +1,4 @@
-const moment = require('moment')
+const dayjs = require('dayjs')
 var formatters = require('../../lib/formatters')
 var ediHelper = require('../../lib/edi-helper')
 var helper = require('./helper')
@@ -19,7 +19,7 @@ exports.barcodeData = function (boleto) {
   var fixo = '9' // Numero fixo para a posição 05-05
   var ios = '0' // IOS - somente para Seguradoras (Se 7% informar 7, limitado 9%) - demais clientes usar 0
 
-  var fatorVencimento = formatters.fatorVencimento(moment(boleto['data_vencimento']).utc().format())
+  var fatorVencimento = formatters.fatorVencimento(dayjs(boleto['data_vencimento']).utc().format())
 
   var valor = formatters.addTrailingZeros(boleto['valor'], 10)
   var carteira = boleto['carteira']

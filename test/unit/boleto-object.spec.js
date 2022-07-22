@@ -1,5 +1,5 @@
 const R = require('ramda')
-const moment = require('moment')
+const dayjs = require('dayjs')
 
 const chai = require('chai')
 chai.use(require('chai-subset'))
@@ -44,11 +44,11 @@ describe('Boleto Object', () => {
     })
 
     it('has current date as data_emissao', () => {
-      expect(moment(boleto.data_emissao).format()).to.be.equal(moment().utc().format())
+      expect(dayjs(boleto.data_emissao).format()).to.be.equal(dayjs().utc().format())
     })
 
     it('has five days past data_emissao as data_vencimento', () => {
-      expect(moment(boleto.data_vencimento).format()).to.be.equal(moment().utc().add(5, 'days').format())
+      expect(dayjs(boleto.data_vencimento).format()).to.be.equal(dayjs().utc().add(5, 'days').format())
     })
   })
 
@@ -115,8 +115,8 @@ describe('Boleto Object', () => {
     })
 
     it('contains dates in options', () => {
-      expect(moment(boleto.data_emissao).format()).to.be.equal(moment(boletoOptions.data_emissao).format())
-      expect(moment(boleto.data_vencimento).format()).to.be.equal(moment(boleto.data_vencimento).format())
+      expect(dayjs(boleto.data_emissao).format()).to.be.equal(dayjs(boletoOptions.data_emissao).format())
+      expect(dayjs(boleto.data_vencimento).format()).to.be.equal(dayjs(boleto.data_vencimento).format())
     })
 
     it('contains formatted nosso_numero_dv', () => {

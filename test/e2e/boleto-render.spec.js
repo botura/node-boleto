@@ -1,4 +1,7 @@
-const moment = require('moment')
+const dayjs = require('dayjs')
+const utc = require('dayjs/plugin/utc')
+dayjs.extend(utc)
+
 const chai = require('chai')
 chai.use(require('chai-string'))
 const expect = chai.expect
@@ -8,8 +11,8 @@ const boletoOutput = require('./boleto-output')
 
 const createBoleto = (bank) => new Boleto({
   'banco': bank,
-  'data_emissao': moment('2017-01-01').format(),
-  'data_vencimento': moment('2017-01-05').format(),
+  'data_emissao': dayjs('2017-01-01').format(),
+  'data_vencimento': dayjs('2017-01-05').format(),
   'valor': 1500,
   'nosso_numero': '6',
   'numero_documento': '1',

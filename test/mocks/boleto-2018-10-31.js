@@ -1,9 +1,9 @@
-const moment = require('moment')
+const dayjs = require('dayjs')
 const testBanks = require('./banks')
 const Boleto = require('../../lib/boleto')(testBanks)
 
-const dataEmissao = moment(moment('2018-10-25 20:48:01.981+00').utc().format('YYYY-MM-DD')).valueOf()
-const dataVencimento = moment(moment('2018-10-31 02:00:00+00').utc().format('YYYY-MM-DD')).valueOf()
+const dataEmissao = dayjs(dayjs('2018-10-25 20:48:01.981+00').utc().format('YYYY-MM-DD')).valueOf()
+const dataVencimento = dayjs(dayjs('2018-10-31 02:00:00+00').utc().format('YYYY-MM-DD')).valueOf()
 
 const boletoOptions = {
   banco: 'test',

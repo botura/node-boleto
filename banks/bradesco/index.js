@@ -1,4 +1,4 @@
-const moment = require('moment')
+const dayjs = require('dayjs')
 var formatters = require('../../lib/formatters')
 var ediHelper = require('../../lib/edi-helper')
 
@@ -16,7 +16,7 @@ exports.barcodeData = function (boleto) {
   var codigoBanco = this.options.codigo
   var numMoeda = '9'
 
-  var fatorVencimento = formatters.fatorVencimento(moment(boleto['data_vencimento']).utc().format())
+  var fatorVencimento = formatters.fatorVencimento(dayjs(boleto['data_vencimento']).utc().format())
 
   var agencia = formatters.addTrailingZeros(boleto['agencia'], 4)
 
